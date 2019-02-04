@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const bodyParser = require('body-parser')
 
+require('dotenv').config()
+
 // require spotify-web-api-node package here:
 const SpotifyWebApi = require('spotify-web-api-node');
 
@@ -16,8 +18,8 @@ app.use(bodyParser.json())
 
 
 // setting the spotify-api goes here:
-const clientId = '63e211b506434e74bc23cea933bfc533',
- clientSecret = '70e76cbfcaad40d089000132cb00d09a';
+const clientId = (process.env.clientId),
+ clientSecret = (process.env.clientSecret)
 
 const spotifyApi = new SpotifyWebApi({
   clientId : clientId,
